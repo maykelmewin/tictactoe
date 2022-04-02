@@ -1,0 +1,21 @@
+.board {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 33.33% 33.33% 33.33%;
+      grid-template-columns: 33.33% 33.33% 33.33%;
+  -ms-grid-rows: 33.33% 33.33% 33.33%;
+      grid-template-rows: 33.33% 33.33% 33.33%;
+  gap: .5rem;
+  height: 400px;
+  width: 400px;
+}
+
+.board__tile {
+  background-color: #ccc;
+}
+
+.board__tile:focus-visible, .board__tile:focus {
+  outline: 1px solid #999;
+  border: 1px solid #999;
+}
+/*# sourceMappingURL=style.css.map */

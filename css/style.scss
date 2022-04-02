@@ -1,0 +1,18 @@
+.board{
+    display: grid;
+    grid-template-columns: 33.33% 33.33% 33.33%;
+    grid-template-rows: 33.33% 33.33% 33.33%;
+    gap: .5rem;
+    height: 400px;
+    width: 400px;
+
+    &__tile {
+        background-color: #ccc;
+
+        &:focus-visible,
+        &:focus{
+        outline: 1px solid #999;
+        border: 1px solid #999;
+        }
+    }
+}
