@@ -10,7 +10,6 @@ var showLoadingScreen = gsap.timeline({ onComplete: LoadingScreenCompleted ,paus
     .to(".preload", {yPercent: 100, duration: 1})
     .to(".preload", {opacity: 0, pointerEvents: "none", duration: .01})
     .to(".preload", {yPercent: -100}, "<")
-
 // show again loading screen
 var showAgainLoadingScreen = gsap.timeline({paused: "true"})
     .to(".preload", {opacity: 1, pointerEvents: "auto"})
@@ -18,9 +17,3 @@ var showAgainLoadingScreen = gsap.timeline({paused: "true"})
     .to(".preload", {yPercent: 100, duration: 1}, "<1.5")
     .to(".preload", {opacity: 0, pointerEvents: "none", duration: .01})
     .to(".preload", {yPercent: -100}, "<")
-
-function LoadingScreenCompleted(){
-    for (j in buttons) {
-        buttons[j].disabled = false;
-    }
-}
