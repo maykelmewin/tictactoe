@@ -61,6 +61,8 @@ function undoTurn(){
         turnlogs.pop();
         tiles[position].textContent = "";
     };
+
+    showAgainLoadingScreenf();
 }
 
 function gameValidate(){

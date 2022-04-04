@@ -5,12 +5,44 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.2/gsap.min.js"></script>
+    
+    <script src="js/app.js" defer></script>
     <script src="js/game.js" defer></script>
+    <script src="js/animation.js" defer></script>
     <title>Tic Tac Toe</title>
 </head>
+
 <body>
-    <div class="board">
-        <div class="board__tile" tabindex="1">asdasds</div>
+
+    <!-- Loading Screen -->
+    <section class="preload"> 
+        <div class="logo-container">
+            <svg xmlns="http://www.w3.org/2000/svg" width="120" height="219" viewBox="0 0 120 219">
+                <g transform="translate(-904 -434)">
+                    <g transform="translate(904 434)">
+                        <text transform="translate(0 76)" fill="#edefee" font-size="79" font-family="Acme-Regular, Acme"><tspan x="0" y="0">Tic </tspan></text>
+                        <text transform="translate(0 135)" fill="#edefee" font-size="73" font-family="Acme-Regular, Acme"><tspan x="0" y="0">Tac </tspan></text>
+                        <text transform="translate(0 196)" fill="#edefee" font-size="76" font-family="Acme-Regular, Acme"><tspan x="0" y="0">Toe </tspan></text>
+                    </g>
+                </g>
+            </svg>
+            <div class="logo-container__filter">
+                <svg xmlns="http://www.w3.org/2000/svg" width="120" height="219" viewBox="0 0 120 219">
+                    <g transform="translate(-904 -434)">
+                        <g transform="translate(904 434)">
+                            <text transform="translate(0 76)" fill="#ffee6b" font-size="79" font-family="Acme-Regular, Acme"><tspan x="0" y="0">Tic </tspan></text>
+                            <text transform="translate(0 135)" fill="#d9828b" font-size="73" font-family="Acme-Regular, Acme"><tspan x="0" y="0">Tac </tspan></text>
+                            <text transform="translate(0 196)" fill="#5c6397" font-size="76" font-family="Acme-Regular, Acme"><tspan x="0" y="0">Toe </tspan></text>
+                        </g>
+                    </g>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <div class="board" style="display:none">
+        <div class="board__tile" tabindex="1"></div>
         <div class="board__tile" tabindex="1"></div>
         <div class="board__tile" tabindex="1"></div>
         <div class="board__tile" tabindex="1"></div>

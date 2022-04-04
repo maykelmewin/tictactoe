@@ -1,3 +1,68 @@
+
+
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+// colors
+$primary-color: #FFEE6B;
+$secondary-color: #A6E2E2;
+$accent-color: #D9828B;
+$second-accent-color: #5C6397;
+$off-color: #EDEFEE;
+$off-reverse-color: #161512;
+
+
+
+
+.preload{
+    position: absolute;
+    inset: 0 auto auto 0;
+    height: 100%;
+    width: 100%;
+    background-color: $secondary-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    .logo-container{
+        position: relative;
+        &__filter{
+            position: absolute;
+            top: 17px;
+            overflow: hidden;
+            width: 100%;
+            height: 60px;
+            animation: logoAnimationContainer .75s ease infinite alternate;
+            svg{
+                position: absolute;
+                top: 17px;
+                animation: logoAnimationFilter .75s ease infinite alternate;
+            }
+        }
+    }
+}
+
+
+@keyframes logoAnimationContainer {
+    0%   {top: 17px;}
+    50%  {top: 80px;}
+    100% {top: 140px;}
+}
+
+@keyframes logoAnimationFilter {
+    0%   {top: -17px;}
+    50%  {top: -80px;}
+    100% {top: -140px;}
+}
+
+
+
+// tentative
 .board{
     display: grid;
     grid-template-columns: 33.33% 33.33% 33.33%;
