@@ -1,14 +1,13 @@
-
-
+//----- BASE
 html {
     box-sizing: border-box;
 }
 
 *, *:before, *:after {
     box-sizing: inherit;
+    font-family: 'Acme', sans-serif;
 }
 
-// colors
 $primary-color: #FFEE6B;
 $secondary-color: #A6E2E2;
 $accent-color: #D9828B;
@@ -16,19 +15,31 @@ $second-accent-color: #5C6397;
 $off-color: #EDEFEE;
 $off-reverse-color: #161512;
 
+//----- COMPONENTS
 
+//----- LAYOUTS
+body {
+    overflow: hidden;
+    background-color: $off-color;
+}
 
-
-.preload{
+.preload, .initanimation{
     position: absolute;
     inset: 0 auto auto 0;
     height: 100%;
     width: 100%;
-    background-color: $secondary-color;
+}
+
+.preload, 
+.initanimation__gate-left,
+.initanimation__gate-right{
     display: flex;
     justify-content: center;
     align-items: center;
-    
+}
+
+.preload{
+    background-color: $secondary-color;
     .logo-container{
         position: relative;
         &__filter{
@@ -44,6 +55,39 @@ $off-reverse-color: #161512;
                 animation: logoAnimationFilter .75s ease infinite alternate;
             }
         }
+        svg{
+            width: Max( 10vw ,60px);
+        }
+    }
+}
+
+.initanimation{
+    display: flex;
+    &__gate-left,
+    &__gate-right{
+        height: 100%;
+        width: 50%;
+        background-color: darken($off-color, 5%);
+    }
+    &__gate-left{
+        justify-content: right;
+    }
+    &__gate-right{
+        justify-content: left;
+    }
+    &__bg-marquee.--toleft,
+    &__bg-marquee.--toright{
+        position: absolute;
+        opacity: .5;
+        transform: rotate(-35deg);
+    }
+    &__bg-marquee.--toleft{
+        top: 0;
+        right: 0;
+    }
+    &__bg-marquee.--toright{
+        bottom: 0;
+        left: 0;
     }
 }
 

@@ -6,14 +6,24 @@ html {
 *, *:before, *:after {
   -webkit-box-sizing: inherit;
           box-sizing: inherit;
+  font-family: 'Acme', sans-serif;
 }
 
-.preload {
+body {
+  overflow: hidden;
+  background-color: #EDEFEE;
+}
+
+.preload, .initanimation {
   position: absolute;
   inset: 0 auto auto 0;
   height: 100%;
   width: 100%;
-  background-color: #A6E2E2;
+}
+
+.preload,
+.initanimation__gate-left,
+.initanimation__gate-right {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -23,6 +33,10 @@ html {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.preload {
+  background-color: #A6E2E2;
 }
 
 .preload .logo-container {
@@ -44,6 +58,51 @@ html {
   top: 17px;
   -webkit-animation: logoAnimationFilter .75s ease infinite alternate;
           animation: logoAnimationFilter .75s ease infinite alternate;
+}
+
+.preload .logo-container svg {
+  width: Max(10vw, 60px);
+}
+
+.initanimation {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.initanimation__gate-left, .initanimation__gate-right {
+  height: 100%;
+  width: 50%;
+  background-color: #e0e3e1;
+}
+
+.initanimation__gate-left {
+  -webkit-box-pack: right;
+      -ms-flex-pack: right;
+          justify-content: right;
+}
+
+.initanimation__gate-right {
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+}
+
+.initanimation__bg-marquee.--toleft, .initanimation__bg-marquee.--toright {
+  position: absolute;
+  opacity: .5;
+  -webkit-transform: rotate(-35deg);
+          transform: rotate(-35deg);
+}
+
+.initanimation__bg-marquee.--toleft {
+  top: 0;
+  right: 0;
+}
+
+.initanimation__bg-marquee.--toright {
+  bottom: 0;
+  left: 0;
 }
 
 @-webkit-keyframes logoAnimationContainer {

@@ -1,7 +1,8 @@
 const buttons = document.querySelectorAll('button');
 
 window.addEventListener('load', () => {
-    showLoadingScreen.play();
+    hideLoadingScreen.play();
+    initAnimation.play();
 
     for (j in buttons) {
         buttons[j].disabled = true;
