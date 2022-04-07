@@ -156,18 +156,18 @@ body {
         content: url(../assets/bg-o.png);
     }
     &--first{
-        top: -50%;
-        left: 15%;
+        top: -50vh;
+        left: 15vw;
         transform: rotate(-15deg);
     }
     &--second{
-        top: 10%;
-        right: -10%;
+        top: 10vh;
+        right: -10vw;
         transform: rotate(5deg);
     }
     &--third{
-        bottom: -40%;
-        left: -5%;
+        bottom: -40vh;
+        left: -5vw;
         transform: rotate(-10deg);
     }
 }

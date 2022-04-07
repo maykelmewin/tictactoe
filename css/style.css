@@ -210,22 +210,22 @@ body {
 }
 
 .bg--first {
-  top: -50%;
-  left: 15%;
+  top: -50vh;
+  left: 15vw;
   -webkit-transform: rotate(-15deg);
           transform: rotate(-15deg);
 }
 
 .bg--second {
-  top: 10%;
-  right: -10%;
+  top: 10vh;
+  right: -10vw;
   -webkit-transform: rotate(5deg);
           transform: rotate(5deg);
 }
 
 .bg--third {
-  bottom: -40%;
-  left: -5%;
+  bottom: -40vh;
+  left: -5vw;
   -webkit-transform: rotate(-10deg);
           transform: rotate(-10deg);
 }
