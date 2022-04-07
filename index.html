@@ -13,7 +13,7 @@
 </head>
 
 <body>
-
+    
     <section class="bg">
         <div class="bg__item bg--first "></div>
         <div class="bg__item bg--second "></div>
@@ -25,14 +25,14 @@
 
         <nav class="nav">
             <h1 class="header-title">tic tac toe</h1>
-            <button class="nav--end btn-icon">
+            <button class="btn-icon">
                 <svg  xmlns="http://www.w3.org/2000/svg" width="13" height="38" viewBox="0 0 13 38">
                     <text transform="translate(0 31)" font-size="29" font-family="SegoeUI-Bold, Segoe UI" font-weight="700"><tspan x="0" y="0">?</tspan></text>
                 </svg>
             </button>
         </nav>
 
-        <div class="board">
+        <div class="board" style="display: none">
             <div class="board__tile" tabindex="1"></div>
             <div class="board__tile" tabindex="1"></div>
             <div class="board__tile" tabindex="1"></div>
@@ -44,14 +44,14 @@
             <div class="board__tile" tabindex="1"></div>
         </div>
 
-        <div class="turn">
+        <div class="turn" hidden>
             <p class="turn__text">your turn</p>
             <div class="turn__card">
                 x
             </div>
         </div>
 
-        <div class="options">
+        <div class="options" hidden>
             <button class="options__btn btn-icon" onclick="undoTurn()">
                 <svg xmlns="http://www.w3.org/2000/svg" width="25.535" height="20.055" viewBox="0 0 25.535 20.055">
                     <path d="M27.774,23.569a12.109,12.109,0,0,0-3.237-9.044c-2.3-2.319-5.237-3.516-9.311-3.733a.23.23,0,0,1-.217-.228V5.852a.23.23,0,0,0-.353-.194l-12.3,8.1a.229.229,0,0,0,0,.382l12.3,8.1a.226.226,0,0,0,.353-.194V17.4a.228.228,0,0,1,.239-.228A13.4,13.4,0,0,1,20.782,18.5a14.033,14.033,0,0,1,5.385,4.758,12.2,12.2,0,0,1,1.219,2.262.253.253,0,0,0,.234.16h.165C27.779,25.011,27.774,24.156,27.774,23.569Z" transform="translate(-2.25 -5.622)"/>
