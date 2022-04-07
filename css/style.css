@@ -18,16 +18,7 @@ body {
   background-color: #EDEFEE;
 }
 
-.preload, .initanimation {
-  position: absolute;
-  inset: 0 auto auto 0;
-  height: 100%;
-  width: 100%;
-}
-
-.preload,
-.initanimation__gate-left,
-.initanimation__gate-right {
+.preload {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -37,9 +28,11 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-}
-
-.preload {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background-color: #A6E2E2;
 }
 
@@ -47,12 +40,17 @@ body {
   position: relative;
 }
 
+.preload .logo-container > svg {
+  opacity: .6;
+}
+
 .preload .logo-container__filter {
   position: absolute;
   top: 17px;
-  overflow: hidden;
+  left: auto;
   width: 100%;
   height: 60px;
+  overflow: hidden;
   -webkit-animation: logoAnimationContainer .75s ease infinite alternate;
           animation: logoAnimationContainer .75s ease infinite alternate;
 }
@@ -60,30 +58,42 @@ body {
 .preload .logo-container__filter svg {
   position: absolute;
   top: 17px;
+  left: auto;
   -webkit-animation: logoAnimationFilter .75s ease infinite alternate;
           animation: logoAnimationFilter .75s ease infinite alternate;
 }
 
 .preload .logo-container svg {
-  width: Max(10vw, 60px);
+  width: Max(8vw, 60px);
 }
 
 .initanimation {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .initanimation__gate-left, .initanimation__gate-right {
-  height: 100%;
   width: 50%;
+  height: 100%;
   background-color: #c5cbc8;
 }
 
 .initanimation__gate-left {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-pack: right;
       -ms-flex-pack: right;
           justify-content: right;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .initanimation__gate-left p {
@@ -91,32 +101,37 @@ body {
 }
 
 .initanimation__gate-right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-pack: left;
       -ms-flex-pack: left;
           justify-content: left;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .initanimation__gate-right p {
   color: #A6E2E2;
 }
 
-.initanimation__bg-marquee.--toleft, .initanimation__bg-marquee.--toright {
+.initanimation__bg-marquee.--toleft {
   position: absolute;
+  top: -50vh;
+  left: -12rem;
+  -webkit-transform: rotate(-35deg);
+          transform: rotate(-35deg);
   opacity: .2;
 }
 
-.initanimation__bg-marquee.--toleft {
-  -webkit-transform: rotate(-35deg);
-          transform: rotate(-35deg);
-  top: -50vh;
-  left: -12rem;
-}
-
 .initanimation__bg-marquee.--toright {
-  -webkit-transform: rotate(-35deg);
-          transform: rotate(-35deg);
+  position: absolute;
   bottom: -50vh;
   right: -12rem;
+  -webkit-transform: rotate(-35deg);
+          transform: rotate(-35deg);
+  opacity: .2;
 }
 
 .initanimation p {

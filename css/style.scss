@@ -24,6 +24,39 @@ $f-thin: 200;
 $f-regular: 400;
 $f-medium: 600;
 $f-bold: 900;
+
+
+@mixin flex($jc: center, $ai: center){
+    display: flex;
+    justify-content: $jc;
+    align-items: $ai;
+}
+@mixin absolutetopleft($t: 0, $l: 0){
+    position: absolute;
+    top: $t;
+    left: $l;
+}
+@mixin absolutetopright($t: 0, $r: 0){
+    position: absolute;
+    top: $t;
+    right: $r;
+}
+@mixin absolutebottomleft($b: 0, $l: 0){
+    position: absolute;
+    bottom: $b;
+    left: $l;
+}
+@mixin absolutebottomright($b: 0, $r: 0){
+    position: absolute;
+    bottom: $b;
+    right: $r;
+}
+
+@mixin wh($w: 100%, $h: 100%){
+    width: $w;
+    height: $h;
+}
+
 //----- COMPONENTS
 
 //----- LAYOUTS
@@ -32,88 +65,69 @@ body {
     background-color: $off-color;
 }
 
-.preload, .initanimation{
-    position: absolute;
-    inset: 0 auto auto 0;
-    height: 100%;
-    width: 100%;
-}
-
-.preload, 
-.initanimation__gate-left,
-.initanimation__gate-right{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .preload{
+    @include flex;
+    @include absolutetopleft;
+    @include wh;
     background-color: $secondary-color;
     .logo-container{
+        > svg{
+            opacity: .6;
+        }
         position: relative;
         &__filter{
-            position: absolute;
-            top: 17px;
+            @include absolutetopleft(17px, auto);
+            @include wh(100%, 60px);
             overflow: hidden;
-            width: 100%;
-            height: 60px;
             animation: logoAnimationContainer .75s ease infinite alternate;
             svg{
-                position: absolute;
-                top: 17px;
+                @include absolutetopleft(17px, auto);
                 animation: logoAnimationFilter .75s ease infinite alternate;
             }
         }
         svg{
-            width: Max( 10vw ,60px);
+            width: Max( 8vw ,60px);
         }
     }
 }
 
 .initanimation{
     display: flex;
+    @include absolutetopleft;
+    @include wh;
     &__gate-left,
     &__gate-right{
-        height: 100%;
-        width: 50%;
+        @include wh(50%, 100%);
         background-color: darken($off-color, 15%);
     }
     &__gate-left{
-        justify-content: right;
+        @include flex(right, center);
         p{
             color: $primary-color;
         }
     }
     &__gate-right{
-        justify-content: left;
+        @include flex(left, center);
         p{
             color: $secondary-color;
         }
     }
-    &__bg-marquee.--toleft,
-    &__bg-marquee.--toright{
-        position: absolute;
+    &__bg-marquee.--toleft{
+        @include absolutetopleft(-50vh, -12rem);
+        transform: rotate(-35deg);
         opacity: .2;
     }
-    &__bg-marquee.--toleft{
-        transform: rotate(-35deg);
-        top: -50vh;
-        left: -12rem;
-    }
     &__bg-marquee.--toright{
+        @include absolutebottomright(-50vh, -12rem);
         transform: rotate(-35deg);
-        bottom: -50vh;
-        right: -12rem;
+        opacity: .2;
     }
     p{
         text-transform: uppercase;
         font-weight: $f-bold;
         font-size: Max(5vw ,40px);
-        // text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
-
     }
 }
-
 
 @keyframes logoAnimationContainer {
     0%   {top: 17px;}

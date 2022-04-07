@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.2/gsap.min.js"></script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=1.0, minimum-scale=1.0, maximum-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.2/gsap.min.js"></script>
     <script src="js/app.js" defer></script>
     <script src="js/game.js" defer></script>
     <script src="js/animation.js" defer></script>
@@ -13,14 +13,103 @@
 </head>
 
 <body>
-    <strong>XO</strong>
+    <!-- Page -->
+    <section class="gamepage" >
+        
+        <nav class="nav">
+            <h1 class="header-title">tic tac toe</h1>
+            <button class="nav--end btn-icon">
+                <svg  xmlns="http://www.w3.org/2000/svg" width="13" height="38" viewBox="0 0 13 38">
+                    <text transform="translate(0 31)" font-size="29" font-family="SegoeUI-Bold, Segoe UI" font-weight="700"><tspan x="0" y="0">?</tspan></text>
+                </svg>
+            </button>
+        </nav>
+
+        <div class="board">
+            <div class="board__tile" tabindex="1"></div>
+            <div class="board__tile" tabindex="1"></div>
+            <div class="board__tile" tabindex="1"></div>
+            <div class="board__tile" tabindex="1"></div>
+            <div class="board__tile" tabindex="1"></div>
+            <div class="board__tile" tabindex="1"></div>
+            <div class="board__tile" tabindex="1"></div>
+            <div class="board__tile" tabindex="1"></div>
+            <div class="board__tile" tabindex="1"></div>
+        </div>
+
+        <div class="turn">
+            <p class="turn__text">your turn</p>
+            <div class="turn__card">
+                x
+            </div>
+        </div>
+
+        <div class="options">
+            <button class="options__btn btn-icon" onclick="undoTurn()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25.535" height="20.055" viewBox="0 0 25.535 20.055">
+                    <path d="M27.774,23.569a12.109,12.109,0,0,0-3.237-9.044c-2.3-2.319-5.237-3.516-9.311-3.733a.23.23,0,0,1-.217-.228V5.852a.23.23,0,0,0-.353-.194l-12.3,8.1a.229.229,0,0,0,0,.382l12.3,8.1a.226.226,0,0,0,.353-.194V17.4a.228.228,0,0,1,.239-.228A13.4,13.4,0,0,1,20.782,18.5a14.033,14.033,0,0,1,5.385,4.758,12.2,12.2,0,0,1,1.219,2.262.253.253,0,0,0,.234.16h.165C27.779,25.011,27.774,24.156,27.774,23.569Z" transform="translate(-2.25 -5.622)"/>
+                </svg> undo
+            </button>
+            <button class="options__btn btn-icon" onclick="restart()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18.616" height="21.277" viewBox="0 0 18.616 21.277">
+                    <path id="Icon_awesome-play" data-name="Icon awesome-play" d="M17.636,8.923,3.009.275A1.984,1.984,0,0,0,0,1.991V19.282A1.993,1.993,0,0,0,3.009,21l14.627-8.643A1.993,1.993,0,0,0,17.636,8.923Z" transform="translate(0 -0.002)"/>
+                </svg> restart
+            </button>
+        </div>
+    </section>
+
+    <!-- Modals -->
+    <section class="modal modal--settings" hidden>
+        <div class="modal-content">
+            <div class="modal__header">
+                <button class="btn-icon--solid">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="23" height="10" viewBox="0 0 23 10">
+                        <path d="M0,0H23V10H0Z" fill="#fff"/>
+                    </svg>       
+                </button>               
+            </div>
+            <div class="modal__body">
+                <h5 class="title">Rules</h5>
+                <ol class="list">
+                    <li>The game is played on a grid that's 3 squares by 3 squares.</li>
+                    <li>You are X, your friend is O. Players take turns putting their marks in empty squares.</li>
+                    <li>The first player to get 3 of her marks in a row (up, down, across, or diagonally) is the winner.</li>
+                    <li>When all 9 squares are full, the game is over. If no player has 3 marks in a row, the game ends in a tie. </li>
+                </ol>
+                <div class="setting">
+                    <div class="setting__item">
+                        <h6 class="text">music</h6>
+                        <button class="btn btn-icon--solid">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="32" viewBox="0 0 17 32">
+                                <text transform="translate(0 24)" fill="#edefee" font-size="24" font-family="Nunito-ExtraBold, Nunito" font-weight="800" letter-spacing="0.1em"><tspan x="0" y="0">X</tspan></text>
+                            </svg>                              
+                        </div>
+                    </div>
+                    <div class="setting__item">
+                        <h6 class="text">sound fx</h6>
+                        <button class="btn btn-icon--solid --active">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="32" viewBox="0 0 20 32">
+                                <text id="O" transform="translate(0 24)" fill="#edefee" font-size="24" font-family="Nunito-ExtraBold, Nunito" font-weight="800" letter-spacing="0.1em"><tspan x="0" y="0">O</tspan></text>
+                            </svg>                                                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal__bg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="156" height="136" viewBox="0 0 156 136">
+                    <text id="XO" transform="translate(0 101)" fill="#161512" font-size="100" font-family="Nunito-ExtraBold, Nunito" font-weight="800" letter-spacing="0.1em" opacity="0.1"><tspan x="0" y="0">XO</tspan></text>
+                </svg>                  
+            </div>
+        </div>
+    </section>
+
     <!-- Initial Animation -->
     <section class="initanimation">
         <div class="initanimation__gate-left">
-            <p>X</p>
+            <p>x</p>
         </div>
         <div class="initanimation__gate-right">
-            <p>O</p>
+            <p>o</p>
         </div>
         <div class="initanimation__bg-marquee --toleft">
             <img src="assets/bg-tictactoe-marquee.png" alt="Tic Tac Toe infinite Word Marque effects on background"/>
@@ -29,23 +118,6 @@
             <img  src="assets/bg-tictactoe-marquee.png" alt="Tic Tac Toe infinite Word Marque effects on background"/>
         </div>  
     </section>
-
-
-    <div class="board" style="display:none">
-        <div class="board__tile" tabindex="1"></div>
-        <div class="board__tile" tabindex="1"></div>
-        <div class="board__tile" tabindex="1"></div>
-        <div class="board__tile" tabindex="1"></div>
-        <div class="board__tile" tabindex="1"></div>
-        <div class="board__tile" tabindex="1"></div>
-        <div class="board__tile" tabindex="1"></div>
-        <div class="board__tile" tabindex="1"></div>
-        <div class="board__tile" tabindex="1"></div>
-    </div>
-    
-    <button onclick="undoTurn()">XO</button>
-    <button onclick="restart()">Restart</button>    
-    
     
     <!-- Loading Screen -->
     <section class="preload"> 
