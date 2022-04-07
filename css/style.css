@@ -189,6 +189,47 @@ body {
   }
 }
 
+.bg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.bg__item {
+  content: url(../assets/bg-x.png);
+  position: absolute;
+  width: Max(30vw, 10rem);
+  opacity: .3;
+}
+
+.bg__item.--o {
+  content: url(../assets/bg-o.png);
+}
+
+.bg--first {
+  top: -50%;
+  left: 15%;
+  -webkit-transform: rotate(-15deg);
+          transform: rotate(-15deg);
+}
+
+.bg--second {
+  top: 10%;
+  right: -10%;
+  -webkit-transform: rotate(5deg);
+          transform: rotate(5deg);
+}
+
+.bg--third {
+  bottom: -40%;
+  left: -5%;
+  -webkit-transform: rotate(-10deg);
+          transform: rotate(-10deg);
+}
+
 .board {
   display: -ms-grid;
   display: grid;

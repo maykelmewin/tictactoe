@@ -142,6 +142,36 @@ body {
     100% {top: -140px;}
 }
 
+.bg{
+    @include wh;
+    @include absolutetopleft(0,0);
+    z-index: -1;
+    &__item{
+        content: url(../assets/bg-x.png);
+        position: absolute;
+        width: Max(30vw, 10rem);
+        opacity: .3;
+    }
+    &__item.--o{
+        content: url(../assets/bg-o.png);
+    }
+    &--first{
+        top: -50%;
+        left: 15%;
+        transform: rotate(-15deg);
+    }
+    &--second{
+        top: 10%;
+        right: -10%;
+        transform: rotate(5deg);
+    }
+    &--third{
+        bottom: -40%;
+        left: -5%;
+        transform: rotate(-10deg);
+    }
+}
+
 
 
 // tentative
