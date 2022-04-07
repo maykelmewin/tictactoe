@@ -1,12 +1,17 @@
 //----- BASE
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;600;900&display=swap');
 html {
     box-sizing: border-box;
 }
 
+body, button{
+    font-family: 'Nunito', sans-serif;
+}
+
 *, *:before, *:after {
     box-sizing: inherit;
-    font-family: 'Acme', sans-serif;
 }
+
 
 $primary-color: #FFEE6B;
 $secondary-color: #A6E2E2;
@@ -15,6 +20,10 @@ $second-accent-color: #5C6397;
 $off-color: #EDEFEE;
 $off-reverse-color: #161512;
 
+$f-thin: 200;
+$f-regular: 400;
+$f-medium: 600;
+$f-bold: 900;
 //----- COMPONENTS
 
 //----- LAYOUTS
@@ -88,6 +97,11 @@ body {
     &__bg-marquee.--toright{
         bottom: 0;
         left: 0;
+    }
+    p{
+        text-transform: uppercase;
+        font-weight: $f-bold;
+        font-size: Max(5vw ,40px);
     }
 }
 

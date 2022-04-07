@@ -20,12 +20,12 @@ var showAgainLoadingScreen = gsap.timeline({paused: "true"})
 
 //initial animation
 var initAnimation = gsap.timeline({paused: "true"})
-    .from(".initanimation__gate-left svg", { y: 10, opacity: 0, duration: .5})
-    .from(".initanimation__gate-right svg", { y: -10, opacity: 0, duration: .5}, "<")
-    .from(".initanimation__gate-left svg", { x: 40, duration: .5})
-    .from(".initanimation__gate-right svg", { x: -40, duration: .5}, "<")
-    .to(".initanimation__gate-left svg", { y: -10, duration: .5})
-    .to(".initanimation__gate-right svg", { y: 10, duration: .5}, "<")
+    .from(".initanimation__gate-left p", { y: 10, opacity: 0, duration: .5})
+    .from(".initanimation__gate-right p", { y: -10, opacity: 0, duration: .5}, "<")
+    .from(".initanimation__gate-left p", { x: 40, duration: .5})
+    .from(".initanimation__gate-right p", { x: -40, duration: .5}, "<")
+    .to(".initanimation__gate-left p", { y: -10, duration: .5})
+    .to(".initanimation__gate-right p", { y: 10, duration: .5}, "<")
     .to(".initanimation__gate-left", { xPercent: -100, duration: .5})
     .to(".initanimation__gate-right", { xPercent: 100, duration: .5}, "<")
     .to(".initanimation__bg-marquee.--toleft img", { xPercent: -100, duration: .5}, "<")
@@ -36,3 +36,4 @@ var initAnimation = gsap.timeline({paused: "true"})
     .fromTo(".initanimation__bg-marquee.--toright img",
         {xPercent: 0,},
         {xPercent: 20 , duration: 2, ease: "linear"}, 0)
+    .to(".initanimation",{yPercent: -100}, 2)
