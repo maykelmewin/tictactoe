@@ -76,32 +76,41 @@ body {
     &__gate-right{
         height: 100%;
         width: 50%;
-        background-color: darken($off-color, 5%);
+        background-color: darken($off-color, 15%);
     }
     &__gate-left{
         justify-content: right;
+        p{
+            color: $primary-color;
+        }
     }
     &__gate-right{
         justify-content: left;
+        p{
+            color: $secondary-color;
+        }
     }
     &__bg-marquee.--toleft,
     &__bg-marquee.--toright{
         position: absolute;
-        opacity: .5;
-        transform: rotate(-35deg);
+        opacity: .2;
     }
     &__bg-marquee.--toleft{
-        top: 0;
-        right: 0;
+        transform: rotate(-35deg);
+        top: -50vh;
+        left: -12rem;
     }
     &__bg-marquee.--toright{
-        bottom: 0;
-        left: 0;
+        transform: rotate(-35deg);
+        bottom: -50vh;
+        right: -12rem;
     }
     p{
         text-transform: uppercase;
         font-weight: $f-bold;
         font-size: Max(5vw ,40px);
+        // text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+
     }
 }
 

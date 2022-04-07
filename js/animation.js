@@ -32,8 +32,8 @@ var initAnimation = gsap.timeline({paused: "true"})
     .to(".initanimation__bg-marquee.--toright img", { xPercent: 100, duration: .5}, "<")
     .fromTo(".initanimation__bg-marquee.--toleft img",
         {xPercent: 0,},
-        {xPercent: 20, duration: 2, ease: "linear"}, 0)
+        {xPercent: -20, duration: 2, ease: "linear"}, 0)
     .fromTo(".initanimation__bg-marquee.--toright img",
         {xPercent: 0,},
-        {xPercent: 20 , duration: 2, ease: "linear"}, 0)
+        {xPercent: 20, duration: 2, ease: "linear"}, 0)
     .to(".initanimation",{yPercent: -100}, 2)
