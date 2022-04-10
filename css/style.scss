@@ -62,19 +62,31 @@ $f-bold: 900;
     height: $h;
 }
 
+@mixin fontpiece{
+    font-weight: $f-bold;
+    color: $off-reverse-color;
+    font-size: Max(6vh, 3rem);
+    line-height: 0;
+    text-transform: uppercase;
+}
 //----- COMPONENTS
 h1{
     font-size: 1.75rem;
 }
 
 .btn-icon{
+    @include flex;
     background-color: transparent;
     border: none;
-    @include flex;
-    svg{
+    gap: .5rem;
+    font-size: 1.25rem;
+    font-weight: $f-bold;
+    text-transform: capitalize;
+    .icon{
         border: .25rem solid $off-reverse-color;
         border-radius: 50%;
         @include wh(35px, 35px);
+        @include flex;
     }
 }
 
@@ -160,14 +172,21 @@ body {
     50%  {top: -80px;}
     100% {top: -140px;}
 }
+
+.turn__card, .board__tile{
+    @include fontpiece;
+}
 .gamepage{
     @include wh(100vw, 100vh);
     overflow: auto;
     display: flex;
+    align-items: center;
     flex-flow: column;
+
     .nav{
         @include flex(space-between, center);
         padding: 0 Max(5vw, 1rem);
+        width: 100%;
         height: Max(10vh, 80px);
         // background-color: red;
         .header-title{
@@ -177,6 +196,54 @@ body {
         }
     }
 
+    .board{
+        flex-shrink: 0;
+        margin: auto 0 1rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        gap: .5rem;
+        height: Max(20vw, 300px);
+        width: Max(20vw, 300px);
+    
+        &__tile {            
+            @include flex;
+            overflow: hidden;
+            background-color: #fff;
+            border-radius: .5rem;
+            &:focus-visible,
+            &:focus,
+            &:hover{
+            background-color: $primary-color;
+            }
+        }
+    }
+    .turn{
+        text-align: center;
+        margin: Max(4vh,2rem) 0 auto;
+        &__text{
+            font-size: 1rem;
+            font-weight: $f-bold;
+            color: $off-reverse-color;
+            text-transform: uppercase;
+            letter-spacing: .25rem;
+        }
+        &__card{
+            @include flex;
+            width: Max(5vw, 100px);
+            height: Max(5vw, 100px);
+            border-radius: 50%;
+            background-color: $primary-color;
+            margin: .75rem auto 0;
+        }
+    }
+    .options{
+        @include absolutebottomright(Max(10vh, 2rem), Max(5vw, 1rem));
+        // margin: 1rem Max(5vw, 1rem) 1rem auto;
+    }
+    .options > button:not(:first-child){
+        margin-top: .5rem;
+    }
 }
 .bg{
     @include wh;
@@ -197,7 +264,7 @@ body {
         transform: rotate(-15deg);
     }
     &--second{
-        top: 10vh;
+        top: -15vh;
         right: -10vw;
         transform: rotate(5deg);
     }
@@ -208,24 +275,3 @@ body {
     }
 }
 
-
-
-// tentative
-.board{
-    display: grid;
-    grid-template-columns: 33.33% 33.33% 33.33%;
-    grid-template-rows: 33.33% 33.33% 33.33%;
-    gap: .5rem;
-    height: 400px;
-    width: 400px;
-
-    &__tile {
-        background-color: #ccc;
-
-        &:focus-visible,
-        &:focus{
-        outline: 1px solid #999;
-        border: 1px solid #999;
-        }
-    }
-}

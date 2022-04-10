@@ -23,8 +23,6 @@ h1 {
 }
 
 .btn-icon {
-  background-color: transparent;
-  border: none;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -34,13 +32,28 @@ h1 {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  background-color: transparent;
+  border: none;
+  gap: .5rem;
+  font-size: 1.25rem;
+  font-weight: 900;
+  text-transform: capitalize;
 }
 
-.btn-icon svg {
+.btn-icon .icon {
   border: 0.25rem solid #161512;
   border-radius: 50%;
   width: 35px;
   height: 35px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 body {
@@ -219,6 +232,14 @@ body {
   }
 }
 
+.turn__card, .board__tile {
+  font-weight: 900;
+  color: #161512;
+  font-size: Max(6vh, 3rem);
+  line-height: 0;
+  text-transform: uppercase;
+}
+
 .gamepage {
   width: 100vw;
   height: 100vh;
@@ -226,6 +247,9 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-flow: column;
@@ -243,6 +267,7 @@ body {
       -ms-flex-align: center;
           align-items: center;
   padding: 0 Max(5vw, 1rem);
+  width: 100%;
   height: Max(10vh, 80px);
 }
 
@@ -250,6 +275,80 @@ body {
   text-transform: capitalize;
   font-weight: 800;
   color: #161512;
+}
+
+.gamepage .board {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  margin: auto 0 1rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+  -ms-grid-rows: 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr;
+  gap: .5rem;
+  height: Max(20vw, 300px);
+  width: Max(20vw, 300px);
+}
+
+.gamepage .board__tile {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  overflow: hidden;
+  background-color: #fff;
+  border-radius: .5rem;
+}
+
+.gamepage .board__tile:focus-visible, .gamepage .board__tile:focus, .gamepage .board__tile:hover {
+  background-color: #FFEE6B;
+}
+
+.gamepage .turn {
+  text-align: center;
+  margin: Max(4vh, 2rem) 0 auto;
+}
+
+.gamepage .turn__text {
+  font-size: 1rem;
+  font-weight: 900;
+  color: #161512;
+  text-transform: uppercase;
+  letter-spacing: .25rem;
+}
+
+.gamepage .turn__card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: Max(5vw, 100px);
+  height: Max(5vw, 100px);
+  border-radius: 50%;
+  background-color: #FFEE6B;
+  margin: .75rem auto 0;
+}
+
+.gamepage .options {
+  position: absolute;
+  bottom: Max(10vh, 2rem);
+  right: Max(5vw, 1rem);
+}
+
+.gamepage .options > button:not(:first-child) {
+  margin-top: .5rem;
 }
 
 .bg {
@@ -280,7 +379,7 @@ body {
 }
 
 .bg--second {
-  top: 10vh;
+  top: -15vh;
   right: -10vw;
   -webkit-transform: rotate(5deg);
           transform: rotate(5deg);
@@ -291,26 +390,5 @@ body {
   left: -5vw;
   -webkit-transform: rotate(-10deg);
           transform: rotate(-10deg);
-}
-
-.board {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 33.33% 33.33% 33.33%;
-      grid-template-columns: 33.33% 33.33% 33.33%;
-  -ms-grid-rows: 33.33% 33.33% 33.33%;
-      grid-template-rows: 33.33% 33.33% 33.33%;
-  gap: .5rem;
-  height: 400px;
-  width: 400px;
-}
-
-.board__tile {
-  background-color: #ccc;
-}
-
-.board__tile:focus-visible, .board__tile:focus {
-  outline: 1px solid #999;
-  border: 1px solid #999;
 }
 /*# sourceMappingURL=style.css.map */
