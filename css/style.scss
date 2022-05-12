@@ -30,6 +30,9 @@ $f-regular: 400;
 $f-medium: 600;
 $f-bold: 900;
 
+$mobile-width: 640px;
+$tablet-width: 768px;
+$desktop-width: 1024px;
 
 @mixin flex($jc: center, $ai: center){
     display: flex;
@@ -94,6 +97,8 @@ h1{
 body {
     overflow: hidden;
     background-color: $off-color;
+    cursor: url('../assets/bg-tictactoe-marquee.png'), auto;	
+            
 }
 
 .preload{
@@ -187,7 +192,8 @@ body {
         @include flex(space-between, center);
         padding: 0 Max(5vw, 1rem);
         width: 100%;
-        height: Max(10vh, 80px);
+        height: 10vh;
+        min-height: 80px;
         // background-color: red;
         .header-title{
             text-transform: capitalize;
@@ -199,18 +205,21 @@ body {
     .board{
         flex-shrink: 0;
         margin: auto 0 1rem;
+        padding-top: 1rem;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         grid-template-rows: 1fr 1fr 1fr;
-        gap: .5rem;
+        gap: .25rem;
         height: Max(20vw, 300px);
         width: Max(20vw, 300px);
-    
+        cursor: pointer;
         &__tile {            
             @include flex;
             overflow: hidden;
-            background-color: #fff;
+            background-color: rgba(255, 255, 255, 0.8);
             border-radius: .5rem;
+            border: .25rem solid rgba($off-reverse-color, .6);
+
             &:focus-visible,
             &:focus,
             &:hover{
@@ -239,6 +248,7 @@ body {
     }
     .options{
         @include absolutebottomright(Max(10vh, 2rem), Max(5vw, 1rem));
+        // if screen width and screen height is ...
         // margin: 1rem Max(5vw, 1rem) 1rem auto;
     }
     .options > button:not(:first-child){
@@ -275,3 +285,15 @@ body {
     }
 }
 
+@media (max-width: $mobile-width) {
+    .gamepage{
+        .options{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin: 1rem Max(5vw, 1rem) Max(5vh, 1rem) auto;
+            position: initial;
+            inset: auto auto auto;
+        }
+    }
+}

@@ -10,13 +10,18 @@ var hideLoadingScreen = gsap.timeline({ onComplete: LoadingScreenCompleted ,paus
     .to(".preload", {yPercent: 100, duration: 1})
     .to(".preload", {opacity: 0, pointerEvents: "none", duration: .01})
     .to(".preload", {yPercent: -100}, "<")
+
 // show again loading screen
-var showAgainLoadingScreen = gsap.timeline({paused: "true"})
-    .to(".preload", {opacity: 1, pointerEvents: "auto"})
-    .to(".preload", {yPercent: 0, duration: 1})
-    .to(".preload", {yPercent: 100, duration: 1}, "<1.5")
-    .to(".preload", {opacity: 0, pointerEvents: "none", duration: .01})
-    .to(".preload", {yPercent: -100}, "<")
+function preloading(){
+   
+        var showAgainLoadingScreen = gsap.timeline()
+        .to(".preload", {opacity: 1, pointerEvents: "auto"})
+        .to(".preload", {yPercent: 0, duration: 1})
+        .to(".preload", {yPercent: 100, duration: 1}, "<1.5")
+        .to(".preload", {opacity: 0, pointerEvents: "none", duration: .01})
+        .to(".preload", {yPercent: -100}, "<")
+ 
+}
 
 //initial animation
 var initAnimation = gsap.timeline({paused: "true"})

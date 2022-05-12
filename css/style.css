@@ -59,6 +59,7 @@ h1 {
 body {
   overflow: hidden;
   background-color: #EDEFEE;
+  cursor: url("../assets/bg-tictactoe-marquee.png"), auto;
 }
 
 .preload {
@@ -268,7 +269,8 @@ body {
           align-items: center;
   padding: 0 Max(5vw, 1rem);
   width: 100%;
-  height: Max(10vh, 80px);
+  height: 10vh;
+  min-height: 80px;
 }
 
 .gamepage .nav .header-title {
@@ -281,15 +283,17 @@ body {
   -ms-flex-negative: 0;
       flex-shrink: 0;
   margin: auto 0 1rem;
+  padding-top: 1rem;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 1fr 1fr;
       grid-template-columns: 1fr 1fr 1fr;
   -ms-grid-rows: 1fr 1fr 1fr;
       grid-template-rows: 1fr 1fr 1fr;
-  gap: .5rem;
+  gap: .25rem;
   height: Max(20vw, 300px);
   width: Max(20vw, 300px);
+  cursor: pointer;
 }
 
 .gamepage .board__tile {
@@ -303,8 +307,9 @@ body {
       -ms-flex-align: center;
           align-items: center;
   overflow: hidden;
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.8);
   border-radius: .5rem;
+  border: 0.25rem solid rgba(22, 21, 18, 0.6);
 }
 
 .gamepage .board__tile:focus-visible, .gamepage .board__tile:focus, .gamepage .board__tile:hover {
@@ -390,5 +395,23 @@ body {
   left: -5vw;
   -webkit-transform: rotate(-10deg);
           transform: rotate(-10deg);
+}
+
+@media (max-width: 640px) {
+  .gamepage .options {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    margin: 1rem Max(5vw, 1rem) Max(5vh, 1rem) auto;
+    position: initial;
+    inset: auto auto auto;
+  }
 }
 /*# sourceMappingURL=style.css.map */

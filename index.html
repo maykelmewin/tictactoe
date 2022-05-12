@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.2/gsap.min.js"></script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=1.0, minimum-scale=1.0, maximum-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.2/gsap.min.js"></script>
     <script src="js/app.js" defer></script>
     <script src="js/game.js" defer></script>
     <script src="js/animation.js" defer></script>
@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    
+    <!-- Background -->
     <section class="bg">
         <div class="bg__item bg--first "></div>
         <div class="bg__item bg--second "></div>
@@ -25,7 +25,7 @@
 
         <nav class="nav">
             <h1 class="header-title">tic tac toe</h1>
-            <button class="btn-icon">
+            <button data-modal data-target="#exampleModal" class="btn-icon">
                 <div class="icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="11" height="32" viewBox="0 0 11 32">
                         <text transform="translate(0 26)" font-size="24" font-family="SegoeUI-Bold, Segoe UI" font-weight="700"><tspan x="0" y="0">?</tspan></text>
@@ -54,14 +54,14 @@
         </div>
 
         <div class="options">
-            <button class="options__btn btn-icon" onclick="undoTurn()">
+            <button id="undoButton" class="options__btn btn-icon">
                 <span class="icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20.641" height="16.211" viewBox="0 0 20.641 16.211">
                         <path d="M22.882,20.129a9.788,9.788,0,0,0-2.616-7.31A10.74,10.74,0,0,0,12.739,9.8a.186.186,0,0,1-.175-.184V5.808a.186.186,0,0,0-.286-.157L2.333,12.2a.185.185,0,0,0,0,.309l9.945,6.55a.183.183,0,0,0,.286-.157V15.145a.184.184,0,0,1,.193-.184A10.831,10.831,0,0,1,17.23,16.03a11.343,11.343,0,0,1,4.353,3.846,9.864,9.864,0,0,1,.986,1.829.2.2,0,0,0,.189.129h.134C22.886,21.295,22.882,20.6,22.882,20.129Z" transform="translate(-2.25 -5.622)"/>
                       </svg>                      
                 </span> undo
             </button>
-            <button class="options__btn btn-icon" onclick="restart()">
+            <button id="restartButton"class="options__btn btn-icon" onclick="restart()">
                 <span class="icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="18.287" viewBox="0 0 16 18.287">
                         <path d="M15.158,7.669,2.586.237A1.7,1.7,0,0,0,0,1.712V16.573a1.713,1.713,0,0,0,2.586,1.475l12.572-7.429A1.713,1.713,0,0,0,15.158,7.669Z" transform="translate(0 -0.002)"/>
@@ -72,7 +72,7 @@
     </section>
 
     <!-- Modals -->
-    <section class="modal modal--settings" hidden>
+    <section class="modal modal--settings" id="settingModal" hidden>
         <div class="modal-content">
             <div class="modal__header">
                 <button class="btn-icon--solid">
